@@ -1,16 +1,16 @@
 import data from '../Data.js'
 
-function Card()  {
+const Card=({images,album,artists})=>  {
     return (
       <div className="Card">
-        <img src={data.album.images[1].url}></img>
+        <img src={images}></img>
         <div className="text-component" >
           <div className="title">
-          <p>{data.album.name}</p>
+          <p>{album}</p>
 
           </div>
           <div className="artists">
-          <p>{data.album.artists[0].name}</p>
+          <p>{artists}</p>
           </div>
           
         </div>
