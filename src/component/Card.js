@@ -1,6 +1,7 @@
 import data from '../Data.js'
 
 const Card=({images,album,artists})=>  {
+  
     return (
       <div className="Card">
         <img src={images}></img>
