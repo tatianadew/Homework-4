@@ -6,7 +6,6 @@ const CLIENT_ID = "99766b5da28a545a9ba7b47922240c363"
 const REDIRECT_URI = "http://localhost:3000/"
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
 const RESPONSE_TYPE = "token"
-const SCOPE = 'playlist-modify-private'
 
 class App extends Component{
   state={
