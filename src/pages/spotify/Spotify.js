@@ -6,8 +6,15 @@ import CardSong from "../../component/CardSong/CardSong";
 import PlaylistForm from "../../component/playlistForm/playlistForm";
 import axios from "axios";
 import PlaylistCard from "../../component/playlistCard/playlistCard";
-
 import { useSelector, useDispatch } from "react-redux";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
+
 import { saveToken } from "../../redux/token-actions";
 
 const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
@@ -75,8 +82,8 @@ function Spotify() {
     newPlaylistId = check.playlistId.replace("spotify:playlist:", "");
     viewPlaylist();
     setCheck({
-      emptyView: false
-    })
+      emptyView: false,
+    });
   };
   const getUserId = async () => {
     try {
@@ -153,12 +160,17 @@ function Spotify() {
       console.log(error);
     }
   };
+  const isLoggedOut = () => {
+    localStorage.removeItem("isLoggedIn");
+    window.location = "http://localhost:3000/";
+  };
   return (
     <div className="container">
       <div className="link-toSpotify">
         <a className="title" href={AUTH_URL}>
           Click this text to Login
         </a>
+        <button onCLick={isLoggedOut}>Logout</button>
       </div>
       <div className="formAndView">
         <div className="create-playlist">

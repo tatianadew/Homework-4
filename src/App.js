@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import "./App.css";
-import Spotify from "./pages/spotify/Spotify";
 import store from './redux/store';
+import AppRouter from "./routes/AppRouter"
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
     // </div>
     <Provider store={store}>
       <div className="App">
-        <Spotify />
+        <AppRouter />
       </div>
     </Provider>
     
