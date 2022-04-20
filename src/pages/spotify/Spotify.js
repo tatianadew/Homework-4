@@ -39,11 +39,11 @@ function Spotify() {
             handleChangeDesc={handleForm}
           />
         </div>
-        {/* <div className="viewPlaylist">
+        <div className="viewPlaylist">
           <button type="submit" onClick={handleView}>
             View Playlist
           </button>
-        </div> */}
+        </div>
       </div>
       <div className="spotify-track">
         <p className="searchTitle">Search Result</p>
