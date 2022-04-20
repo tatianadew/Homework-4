@@ -3,12 +3,12 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 export default function useSearch() {
-  const [isLoggedIn, setIsLoggedin] = useState(false);
-  const [savedToken, setSavedToken] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState([]);
-  const accessToken = useSelector((state) => state.token.value);
-
+  const [dataSlice, setDataSlice] = useState([]);
+  const accessToken = useSelector((state) => state.auth.token.token);
+  const savedToken = useSelector((state) => state.auth.token.token);
+  const isLoggedIn = useSelector((state) => state.auth.token.token);
   const handleChange = (event) => {
     setSearchQuery(event.target.value);
   };
@@ -32,6 +32,7 @@ export default function useSearch() {
           const data = response.data.tracks.items;
           console.log(data);
           setSearchResult(data);
+          setDataSlice(data);
         })
         .catch((error) => {
           console.log(error);
@@ -48,5 +49,6 @@ export default function useSearch() {
     searchResult,
     handleChange,
     onSearch,
+    dataSlice,
   };
 };
